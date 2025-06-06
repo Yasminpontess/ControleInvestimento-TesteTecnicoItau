@@ -8,16 +8,19 @@ namespace ControleInvestimentosItau.Properties.Data
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 
-        public DbSet<Ativo> Ativos { get; set; }
-        public DbSet<Operacao> Operacoes { get; set; }
-        public DbSet<Investidor> Investidores { get; set; }
+        public DbSet<Usuario> Usuarios => Set<Usuario>();
+        public DbSet<Ativo> Ativos => Set<Ativo>();
+        public DbSet<Operacao> Operacoes => Set<Operacao>();
+        public DbSet<Cotacao> Cotacoes => Set<Cotacao>();
+        public DbSet<Posicao> Posicoes => Set<Posicao>();
 
-       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Ativo>().ToTable("Ativos");
-            modelBuilder.Entity<Operacao>().ToTable("Operacoes");
-            modelBuilder.Entity<Investidor>().ToTable("Investidores");
+            modelBuilder.Entity<Usuario>().ToTable("usuarios");
+            modelBuilder.Entity<Ativo>().ToTable("ativos");
+            modelBuilder.Entity<Operacao>().ToTable("operacoes");
+            modelBuilder.Entity<Cotacao>().ToTable("cotacoes");
+            modelBuilder.Entity<Posicao>().ToTable("posicoes");
         }
     }
 }
