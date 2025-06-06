@@ -1,13 +1,14 @@
 ﻿using ControleInvestimentosItau.Models;
 
 namespace ControleInvestimentosItau.Models;
-public class Ativo
+
+public class Usuario
 {
     public int Id { get; set; }
-    public string Codigo { get; set; } = string.Empty; // Ex: ITSA3, KDIF11
     public string Nome { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public decimal CorretagemPercentual { get; set; }
 
     public ICollection<Operacao> Operacoes { get; set; } = new List<Operacao>();
-    public ICollection<Cotacao> Cotacoes { get; set; } = new List<Cotacao>();
     public ICollection<Posicao> Posicoes { get; set; } = new List<Posicao>();
 }

@@ -1,37 +1,26 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using ControleInvestimentosItau.Models;
 
-namespace ControleInvestimentosItau.Models
+namespace ControleInvestimentosItau.Models;
+
+public enum TipoOperacao
 {
-    public class OperacaoModel
-    {
-        [Key]
-        public int Id { get; set; }
+    Compra,
+    Venda
+}
 
-        [Required]
-        public DateTime Data { get; set; }
+public class Operacao
+{
+    public int Id { get; set; }
 
-        [Required]
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal Preco { get; set; }
+    public int UsuarioId { get; set; }
+    public Usuario Usuario { get; set; }
 
-        [Required]
-        public int Quantidade { get; set; }
+    public int AtivoId { get; set; }
+    public Ativo Ativo { get; set; }
 
-        [Required]
-        public TipoOperacao Tipo { get; set; } // Compra ou Venda
-
-        // Relacionamentos
-        public int InvestidorId { get; set; }
-        public Investidor Investidor { get; set; }
-
-        public int AtivoId { get; set; }
-        public Ativo Ativo { get; set; }
-    }
-
-    public enum TipoOperacao
-    {
-        Compra,
-        Venda
-    }
+    public int Quantidade { get; set; }
+    public decimal PrecoUnitario { get; set; }
+    public TipoOperacao TipoOperacao { get; set; }
+    public decimal Corretagem { get; set; }
+    public DateTime DataHora { get; set; }
 }

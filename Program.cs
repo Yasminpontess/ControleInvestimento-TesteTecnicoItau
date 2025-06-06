@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using ControleInvestimentosItau.Properties.Data;
+using ControleInvestimentosItau.Models;
 
 public class Program
 {
